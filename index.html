@@ -9,11 +9,36 @@
     <title>Calculator App</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <style>
+        body {
+            background: rgba(61, 125, 163, 0.4);
+        }
+        #calculator {
+            display: none;
+            transition: all 0.5s ease;
+        }
+        #calculator .active {
+            visibility: visible;
+           
+        }
+        .col-md-6 {
+            background: white;
+            transform: scale(0.99);
+            border-radius: 0 20px 0 20px;
+        }
+        #buttons {
+            font-family: "monospace";
+            background: lavender;
+        }
         .op-btn {
             width: 150px;
             height: 50px;
             font-size: 1.3em;
             font-weight: 700;
+        }
+        .myself {
+            width: 100px;
+            border-radius: 50px;
+            border: 10px solid lavender;
         }
         .btn {
             outline: none;
@@ -26,30 +51,39 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-xm-6 col-sm-6 col-md-6 col-lg-6 shadow py-3">
-                <h4 class="text-center text-uppercase">Simple Calculator</h4>
-                <p class="text-center">fill the two fields then perform your operation</p>
+            <div class="col-md-6 text-center shadow py-3">
+                <img src="snr.png" class="img-fluid myself">
+                <h4 class="text-center text-uppercase mt-2">Simple Calculator</h4>
+                <div id="error"></div>
                 <div class="form-group mt-2">
                 <input type="number" id="firstNumber" placeholder="Enter first number" class="form-control">
             </div>
             <div class="form-group mt-2">
-                <input type="number" id="secondNumber" placeholder="Enter Second number" class="form-control">
+                <input type="number" id="secondNumber" placeholder="Enter second number" class="form-control">
             </div>
             <div class="form-group mt-2">
                 <h3 class="mt-3"><span id="answer"></span></h3>
             </div>
+            <p class="text-center">this calculator was built to revive your maths spirit</p>
         </div>
-                <div class="col-xm-6 col-sm-6 col-md-6 col-lg-6 shadow py-3">
-                <button type="button" class="btn btn-primary op-btn" onclick="addTwoNum()">+</button>
-                <button type="button" class="btn btn-info op-btn" onclick="subtractTwoNum()">-</button>
-                <div class="d-flex">
-                <button type="button" class="btn btn-warning op-btn mt-2" onclick="multiplyTwoNum()">*</button>&nbsp;
+
+                <div class="col-md-6 text-center shadow py-3" id="buttons">
+                <button type="button" class="btn btn-primary op-btn mt-2" onclick="addTwoNum()">+</button>
+                <button type="button" class="btn btn-info op-btn mt-2" onclick="subtractTwoNum()">-</button>
+                <button type="button" class="btn btn-warning op-btn mt-2" onclick="multiplyTwoNum()">*</button>
                 <button type="button" class="btn btn-secondary op-btn mt-2" onclick="divideTwoNum()">/</button>
-            </div>
-            <div class="d-flex">
-                <button type="button" class="btn btn-success op-btn mt-2" id="clear">C</button>&nbsp;
+                <button class="btn btn-secondary op-btn  mt-2">INV</button>
+                  <button class="btn btn-info op-btn  mt-2">log</button>
+                    <button class="btn btn-primary op-btn  mt-2">cos</button>
+                      <button class="btn btn-info op-btn  mt-2">sin</button>
+                        <button class="btn btn-warning op-btn  mt-2">%</button>
+                          <button class="btn btn-primary op-btn  mt-2">tan</button>
+                            <button class="btn btn-primary op-btn  mt-2">pi</button>
+                            <button class="btn btn-primary op-btn  mt-2">RAD</button>
+                            <button class="btn btn-primary op-btn  mt-2">!</button>
+                            <button class="btn btn-primary op-btn  mt-2">e</button>
+                             <button type="button" class="btn btn-success op-btn mt-2" id="clear">C</button>
                 <button type="button" class="btn btn-danger op-btn mt-2" id="del">Del</button>
-            </div>
                 <br/>
         </div>
     </div>
